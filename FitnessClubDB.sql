@@ -77,7 +77,7 @@ GO
 		trainerId INT NOT NULL,
 		planName varchar(255) NOT NULL,
 		description varchar(1000),
-		freqPerWeek INT NOT NULL CHECK (durationWeeks > 0 ) ,
+		freqPerWeek INT NOT NULL CHECK (freqPerWeek > 0 ) ,
 		price DECIMAL(10,2) NOT NULL,
 		FOREIGN KEY (trainerId) REFERENCES TrainersDetails(id)
 	);
@@ -158,24 +158,7 @@ INSERT INTO TrainersDetails (fullName, phoneNumber, address, age, height, weight
 ('James Thomas', '555-1121', '808 Cedar Street, Springfield', 31, 180, 80),
 ('Megan Jackson', '555-1122', '909 Elm Avenue, Springfield', 29, 173, 70),
 ('Lucas White', '555-1123', '1010 Oak Street, Springfield', 25, 177, 76),
-('Isabella Harris', '555-1124', '1111 Pine Road, Springfield', 34, 165, 63),
-('Ethan Martin', '555-1125', '1212 Maple Lane, Springfield', 37, 182, 85),
-('Chloe Lee', '555-1126', '1313 Birch Avenue, Springfield', 26, 160, 55),
-('Benjamin Scott', '555-1127', '1414 Cedar Lane, Springfield', 40, 174, 80),
-('Avery Young', '555-1128', '1515 Elm Road, Springfield', 32, 169, 67),
-('Liam Allen', '555-1129', '1616 Oak Avenue, Springfield', 27, 178, 73),
-('Victoria King', '555-1130', '1717 Pine Street, Springfield', 30, 160, 58),
-('Samuel Wright', '555-1131', '1818 Maple Street, Springfield', 35, 180, 82),
-('Mason Perez', '555-1132', '1919 Birch Lane, Springfield', 28, 175, 70),
-('Zoe Gonzalez', '555-1133', '2020 Cedar Avenue, Springfield', 31, 160, 59),
-('Jack Carter', '555-1134', '2121 Elm Street, Springfield', 34, 185, 90),
-('Madison Mitchell', '555-1135', '2222 Oak Road, Springfield', 29, 168, 62),
-('Gabriel Adams', '555-1136', '2323 Pine Avenue, Springfield', 33, 177, 75),
-('Charlotte Nelson', '555-1137', '2424 Maple Avenue, Springfield', 36, 163, 65),
-('Wyatt Turner', '555-1138', '2525 Birch Street, Springfield', 39, 180, 88),
-('Lily Roberts', '555-1139', '2626 Cedar Street, Springfield', 30, 170, 66),
-('Elijah Clark', '555-1140', '2727 Elm Lane, Springfield', 27, 175, 74),
-('Harper Martinez', '555-1141', '2828 Oak Lane, Springfield', 28, 162, 60);
+('Isabella Harris', '555-1124', '1111 Pine Road, Springfield', 34, 165, 63);
 
 GO
 /* --------------------------------------------------------- */
@@ -196,22 +179,6 @@ INSERT INTO TrainerSpecialization (trainerId, specialization, startExperienceDat
 (12, 'Strength Training', '2015-12-20'),
 (13, 'Yoga', '2018-06-15'),
 (14, 'Sports Nutrition', '2017-01-22'),
-(15, 'Cardio Training', '2019-09-09'),
-(16, 'Personal Training', '2014-07-19'),
-(17, 'Pilates', '2017-03-01'),
-(18, 'HIIT', '2016-06-11'),
-(19, 'Functional Fitness', '2015-04-25'),
-(20, 'Strength Training', '2014-10-30'),
-(21, 'Weight Loss Coaching', '2018-02-10'),
-(22, 'CrossFit', '2017-08-01'),
-(23, 'Boxing', '2019-07-07'),
-(24, 'Mobility Training', '2016-11-05'),
-(25, 'Sports Nutrition', '2015-09-17'),
-(26, 'Personal Training', '2014-01-14'),
-(27, 'Yoga', '2019-11-22'),
-(28, 'HIIT', '2017-05-05'),
-(29, 'Strength Training', '2016-03-01'),
-(30, 'Functional Fitness', '2015-12-12');
 /* Second */
 (1, 'Functional Fitness', '2016-05-10'),
 (2, 'Sports Nutrition', '2018-03-12'),
@@ -227,22 +194,6 @@ INSERT INTO TrainerSpecialization (trainerId, specialization, startExperienceDat
 (12, 'Sports Nutrition', '2017-11-05'),
 (13, 'Yoga', '2014-05-25'),
 (14, 'Strength Training', '2016-12-01'),
-(15, 'CrossFit', '2019-03-02'),
-(16, 'Mobility Training', '2015-06-15'),
-(17, 'Personal Training', '2016-09-22'),
-(18, 'HIIT', '2018-04-11'),
-(19, 'Cardio Training', '2017-01-30'),
-(20, 'Functional Fitness', '2015-08-19'),
-(21, 'Strength Training', '2016-02-28'),
-(22, 'Pilates', '2018-07-13'),
-(23, 'Boxing', '2019-01-07'),
-(24, 'Sports Nutrition', '2014-09-12'),
-(25, 'CrossFit', '2015-03-03'),
-(26, 'Mobility Training', '2017-06-10'),
-(27, 'Weight Loss Coaching', '2016-10-25'),
-(28, 'Personal Training', '2018-01-10'),
-(29, 'Functional Fitness', '2019-05-15'),
-(30, 'Strength Training', '2017-04-02');
 /* Third */
 (1, 'CrossFit', '2015-04-01'),
 (2, 'Strength Training', '2016-11-23'),
@@ -257,25 +208,7 @@ INSERT INTO TrainerSpecialization (trainerId, specialization, startExperienceDat
 (11, 'Strength Training', '2014-10-05'),
 (12, 'HIIT', '2019-06-07'),
 (13, 'Pilates', '2016-02-03'),
-(14, 'Mobility Training', '2018-04-21'),
-(15, 'Functional Fitness', '2019-03-10'),
-(16, 'Sports Nutrition', '2017-01-11'),
-(17, 'Cardio Training', '2015-11-14'),
-(18, 'Weight Loss Coaching', '2016-12-05'),
-(19, 'CrossFit', '2017-07-02'),
-(20, 'Boxing', '2019-02-19'),
-(21, 'Strength Training', '2014-06-15'),
-(22, 'Yoga', '2018-10-28'),
-(23, 'HIIT', '2017-09-14'),
-(24, 'Pilates', '2015-01-02'),
-(25, 'Functional Fitness', '2016-08-29'),
-(26, 'CrossFit', '2019-04-23'),
-(27, 'Sports Nutrition', '2014-05-06'),
-(28, 'Personal Training', '2017-12-18'),
-(29, 'Mobility Training', '2015-12-01'),
-(30, 'Boxing', '2018-11-30');
-
-
+(14, 'Mobility Training', '2018-04-21');
 GO
 
 /* WorkoutPlans */
@@ -294,22 +227,6 @@ INSERT INTO WorkoutPlans (trainerId, planName, description, freqPerWeek, price) 
 (12, 'Advanced Strength Training', 'An advanced strength training program designed for experienced lifters looking to push their limits.', 3, 250.00),
 (13, 'Mindful Yoga', 'A yoga program focusing on mental well-being, mindfulness, and relaxation.', 2, 130.00),
 (14, 'Sports Nutrition and Fitness', 'Combines fitness training with expert nutritional guidance for optimal performance.', 3, 200.00),
-(15, 'Cardio and Core', 'A program designed to improve cardiovascular health while strengthening the core muscles.', 4, 170.00),
-(16, 'Functional Training Program', 'A program designed to enhance everyday movement and overall body function.', 3, 190.00),
-(17, 'Pilates Reformer Classes', 'Pilates reformer sessions designed to target core muscles and improve posture.', 2, 160.00),
-(18, 'Advanced HIIT Training', 'A high-intensity interval training program for experienced athletes focused on endurance and strength.', 5, 240.00),
-(19, 'Weight Loss and Conditioning', 'A program combining weight loss strategies with overall body conditioning and toning.', 4, 180.00),
-(20, 'Speed and Agility Training', 'A program aimed at improving athletic performance through speed and agility drills.', 3, 210.00),
-(21, 'Strength and Conditioning', 'A program combining strength training with conditioning exercises for total fitness.', 4, 200.00),
-(22, 'CrossFit Strength and Conditioning', 'A CrossFit-based strength and conditioning program for overall fitness improvement.', 4, 230.00),
-(23, 'Yoga and Mindfulness', 'A calming yoga program focusing on relaxation, flexibility, and mental clarity.', 2, 150.00),
-(24, 'Running Endurance Program', 'A running-specific program designed to improve endurance, speed, and running efficiency.', 3, 180.00),
-(25, 'Senior Fitness Program', 'A fitness plan tailored for seniors, focusing on mobility, strength, and overall well-being.', 2, 130.00),
-(26, 'Teen Fitness Program', 'A fitness program designed specifically for teenagers to build strength and endurance in a safe way.', 3, 160.00),
-(27, 'Core and Flexibility', 'A plan that focuses on strengthening the core and increasing flexibility through various exercises.', 3, 150.00),
-(28, 'Athletic Conditioning', 'A high-intensity program aimed at conditioning athletes for peak performance.', 4, 210.00),
-(29, 'Personal Weight Loss Plan', 'Customized weight loss plan with a combination of cardio, strength training, and nutrition guidance.', 5, 220.00),
-(30, 'Powerlifting Program', 'A powerlifting-focused program designed to maximize strength in the squat, bench press, and deadlift.', 3, 230.00);
 (1, 'Bodybuilding Program', 'A comprehensive bodybuilding plan focused on muscle hypertrophy and strength gains.', 4, 250.00),
 (2, 'Total Body Conditioning', 'A full-body conditioning program to enhance strength, endurance, and flexibility.', 3, 190.00),
 (3, 'Power Yoga', 'An intense yoga program combining strength, flexibility, and cardio to improve overall fitness.', 2, 140.00),
@@ -324,94 +241,222 @@ INSERT INTO WorkoutPlans (trainerId, planName, description, freqPerWeek, price) 
 (12, 'Senior Strength Program', 'A strength training program specifically designed for seniors to maintain muscle and bone health.', 2, 120.00),
 (13, 'Sports-Specific Conditioning', 'Conditioning tailored to a specific sport to enhance performance and prevent injuries.', 3, 210.00),
 (14, 'Functional Movement Training', 'A functional training program focusing on exercises that mimic everyday movements and improve mobility.', 4, 200.00),
-(15, 'HIIT and Strength Fusion', 'A fusion of high-intensity interval training and strength training for maximum fat loss and muscle gain.', 5, 250.00),
-(16, 'Total Body Sculpt', 'A program designed to sculpt and tone the entire body with a mix of strength, endurance, and mobility exercises.', 3, 170.00),
-(17, 'Circuit Training Program', 'A full-body circuit training plan to build strength, endurance, and overall fitness.', 4, 180.00),
-(18, 'Recovery and Mobility Plan', 'A recovery-focused plan to help athletes improve mobility and speed up recovery post-workout.', 2, 130.00),
-(19, 'Weight Loss Bootcamp', 'An intense, fat-burning bootcamp program that combines strength and cardio workouts to help lose weight fast.', 5, 240.00),
-(20, 'Powerlifting Strength Program', 'A program designed to improve your strength in the squat, bench press, and deadlift for powerlifters.', 4, 230.00),
-(21, 'Functional Fitness for Athletes', 'A functional fitness program for athletes focusing on agility, speed, and explosive power.', 3, 210.00),
-(22, 'Flexibility and Mobility Training', 'A program dedicated to increasing flexibility and mobility to enhance range of motion and reduce injury.', 2, 140.00),
-(23, 'Youth Sports Conditioning', 'A conditioning program for young athletes to build strength, coordination, and speed.', 3, 180.00),
-(24, 'Speed and Agility Drills', 'A program focusing on improving speed, agility, and quickness for athletes in all sports.', 4, 200.00),
-(25, 'Boxing Fitness Program', 'A boxing fitness program combining cardiovascular training with strength and boxing techniques.', 3, 170.00),
-(26, 'Mindfulness and Movement', 'A plan combining yoga, breathing exercises, and mindfulness practices to reduce stress and improve well-being.', 2, 160.00),
-(27, 'Sports Recovery Program', 'A program designed to enhance muscle recovery and prevent injuries using stretching, mobility work, and recovery techniques.', 2, 130.00),
-(28, 'Bootcamp Fitness', 'A bootcamp-style fitness program designed to push participants to their limits while building strength and endurance.', 5, 220.00),
-(29, 'Strength Training for Runners', 'A strength program designed for runners to help improve performance and reduce injury risk.', 3, 180.00),
-(30, 'Hybrid Fitness Program', 'A hybrid fitness plan combining strength training, HIIT, and flexibility to create a balanced fitness routine.', 4, 200.00);
+(1, 'Beginner Strength Training', 'A basic plan for beginners focusing on full-body workouts.', 3, 49.99),
+(2, 'Fat Loss Program', 'High-intensity interval training to help shed fat quickly.', 4, 59.99),
+(3, 'Muscle Gain Blueprint', 'Advanced hypertrophy-focused program for serious lifters.', 5, 79.99),
+(4, 'Endurance Boost', 'Designed for improving cardiovascular fitness and stamina.', 4, 54.99),
+(1, 'Powerlifting Routine', 'Strength-focused training with progressive overload principles.', 4, 69.99),
+(5, 'Bodyweight Mastery', 'Calisthenics-based training for strength and flexibility.', 3, 44.99),
+(2, 'Athletic Performance', 'Speed, agility, and strength drills for athletes.', 5, 89.99),
+(6, 'Postpartum Fitness', 'A gentle yet effective program for new mothers.', 3, 39.99),
+(3, 'Yoga & Flexibility', 'Yoga-based plan for mobility and stress relief.', 3, 34.99),
+(4, 'CrossFit Essentials', 'Functional movements with high-intensity training.', 4, 74.99),
+(5, 'Home Workout Plan', 'No equipment needed, perfect for home workouts.', 3, 29.99),
+(6, 'Senior Fitness', 'Low-impact exercises tailored for older adults.', 3, 39.99),
+(11, 'Lean Bulk Program', 'Nutrition and strength-focused plan for lean muscle gain.', 5, 79.99),
+(14, 'Boxing Conditioning', 'Boxing-inspired training for endurance and fat loss.', 4, 69.99);
 GO
 
 
 /* Payments */
+INSERT INTO RegistrationToWorkoutPlans (memberId, planId)
+VALUES
+(1, 5), (2, 12), (3, 8), (4, 20), (5, 15),
+(6, 3), (7, 7), (8, 10), (9, 25), (10, 30),
+(11, 2), (12, 18), (13, 21), (14, 35), (15, 40),
+(16, 1), (17, 9), (18, 13), (19, 28), (20, 32),
+(21, 6), (22, 14), (23, 22), (24, 37), (25, 39),
+(26, 4), (27, 19), (28, 23), (29, 31), (30, 36),
+(1, 16), (2, 11), (3, 29), (4, 34), (5, 41),
+(6, 17), (7, 24), (8, 26), (9, 38), (10, 33),
+(11, 27), (12, 5), (13, 12), (14, 8), (15, 20),
+(16, 15), (17, 3), (18, 7), (19, 10), (20, 25),
+(21, 30), (22, 2), (23, 18), (24, 21), (25, 35),
+(26, 40), (27, 1), (28, 9), (29, 13), (30, 28),
+(31, 32), (1, 6), (2, 14), (3, 22), (4, 37),
+(5, 39), (6, 4), (7, 19), (8, 23), (9, 31),
+(10, 36), (11, 16), (12, 11), (13, 29), (14, 34),
+(15, 41), (16, 17), (17, 24), (18, 26), (19, 38),
+(20, 33), (21, 27), (22, 5), (23, 12), (24, 8),
+(25, 20), (26, 15), (27, 3), (28, 7), (29, 10),
+(30, 25), (31, 30), (1, 2), (2, 18), (3, 21),
+(4, 35), (5, 40);
 
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (1, 1);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (1, 2);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (1, 4);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (2, 2);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (2, 3);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (3, 1);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (3, 3);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (3, 2);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (4, 7);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (4, 8);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (4, 9);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (4, 2);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (5, 1);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (5, 11);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (5, 12);
-
-INSERT INTO RegistrationToWorkoutPlans(memberId, planId)
-VALUES (5, 10);
 
 GO
 
 
 /* PaymentsDetails fill the amount!!!! */
+INSERT INTO PaymentsDetails (registrationId, amount, paymentMethods, paymentVerification)
+VALUES
+(1, 49.99, 'Credit Card', 'Verified'),
+(2, 59.99, 'Paypal', 'Verified'),
+(3, 39.99, 'Bank Transfer', 'Verified'),
+(4, 69.99, 'Google Pay', 'Verified'),
+(5, 79.99, 'Apple Pay', 'Verified'),
+(6, 54.99, 'Credit Card', 'Verified'),
+(7, 44.99, 'Paypal', 'Verified'),
+(8, 34.99, 'Bank Transfer', 'Verified'),
+(9, 74.99, 'Google Pay', 'Verified'),
+(10, 29.99, 'Apple Pay', 'Verified'),
+(11, 89.99, 'Credit Card', 'Verified'),
+(12, 69.99, 'Paypal', 'Verified'),
+(13, 39.99, 'Bank Transfer', 'Verified'),
+(14, 49.99, 'Google Pay', 'Verified'),
+(15, 59.99, 'Apple Pay', 'Verified'),
+(16, 34.99, 'Credit Card', 'Verified'),
+(17, 74.99, 'Paypal', 'Verified'),
+(18, 29.99, 'Bank Transfer', 'Verified'),
+(19, 99.99, 'Google Pay', 'Verified'),
+(20, 79.99, 'Apple Pay', 'Verified'),
+(21, 44.99, 'Credit Card', 'Verified'),
+(22, 54.99, 'Paypal', 'Verified'),
+(23, 64.99, 'Bank Transfer', 'Verified'),
+(24, 49.99, 'Google Pay', 'Verified'),
+(25, 59.99, 'Apple Pay', 'Verified'),
+(26, 39.99, 'Credit Card', 'Verified'),
+(27, 89.99, 'Paypal', 'Verified'),
+(28, 69.99, 'Bank Transfer', 'Verified'),
+(29, 79.99, 'Google Pay', 'Verified'),
+(30, 29.99, 'Apple Pay', 'Verified'),
+(31, 49.99, 'Credit Card', 'Verified'),
+(32, 34.99, 'Paypal', 'Verified'),
+(33, 74.99, 'Bank Transfer', 'Verified'),
+(34, 54.99, 'Google Pay', 'Verified'),
+(35, 64.99, 'Apple Pay', 'Verified'),
+(36, 44.99, 'Credit Card', 'Verified'),
+(37, 99.99, 'Paypal', 'Verified'),
+(38, 89.99, 'Bank Transfer', 'Verified'),
+(39, 79.99, 'Google Pay', 'Verified'),
+(40, 69.99, 'Apple Pay', 'Verified'),
+(41, 34.99, 'Credit Card', 'Verified'),
+(42, 39.99, 'Paypal', 'Verified'),
+(43, 49.99, 'Bank Transfer', 'Verified'),
+(44, 54.99, 'Google Pay', 'Verified'),
+(45, 29.99, 'Apple Pay', 'Verified'),
+(46, 59.99, 'Credit Card', 'Verified'),
+(47, 64.99, 'Paypal', 'Verified'),
+(48, 44.99, 'Bank Transfer', 'Verified'),
+(49, 79.99, 'Google Pay', 'Verified'),
+(50, 99.99, 'Apple Pay', 'Verified'),
+(51, 89.99, 'Credit Card', 'Verified'),
+(52, 69.99, 'Paypal', 'Verified'),
+(53, 39.99, 'Bank Transfer', 'Verified'),
+(54, 49.99, 'Google Pay', 'Verified'),
+(55, 29.99, 'Apple Pay', 'Verified'),
+(56, 54.99, 'Credit Card', 'Verified'),
+(57, 79.99, 'Paypal', 'Verified'),
+(58, 44.99, 'Bank Transfer', 'Verified'),
+(59, 64.99, 'Google Pay', 'Verified'),
+(60, 59.99, 'Apple Pay', 'Verified'),
+(61, 34.99, 'Credit Card', 'Verified'),
+(62, 74.99, 'Paypal', 'Verified'),
+(63, 99.99, 'Bank Transfer', 'Verified'),
+(64, 69.99, 'Google Pay', 'Verified'),
+(65, 49.99, 'Apple Pay', 'Verified'),
+(66, 89.99, 'Credit Card', 'Verified'),
+(67, 39.99, 'Paypal', 'Verified'),
+(68, 54.99, 'Bank Transfer', 'Verified'),
+(69, 64.99, 'Google Pay', 'Verified'),
+(70, 29.99, 'Apple Pay', 'Verified'),
+(71, 79.99, 'Credit Card', 'Verified'),
+(72, 44.99, 'Paypal', 'Verified'),
+(73, 49.99, 'Bank Transfer', 'Verified'),
+(74, 74.99, 'Google Pay', 'Verified'),
+(75, 34.99, 'Apple Pay', 'Verified'),
+(76, 89.99, 'Credit Card', 'Verified'),
+(77, 99.99, 'Paypal', 'Verified'),
+(78, 39.99, 'Bank Transfer', 'Verified'),
+(79, 69.99, 'Google Pay', 'Verified'),
+(80, 59.99, 'Apple Pay', 'Verified'),
+(81, 54.99, 'Credit Card', 'Verified'),
+(82, 44.99, 'Paypal', 'Verified'),
+(83, 74.99, 'Bank Transfer', 'Verified'),
+(84, 79.99, 'Google Pay', 'Verified'),
+(85, 64.99, 'Apple Pay', 'Verified'),
+(86, 49.99, 'Credit Card', 'Verified'),
+(87, 89.99, 'Paypal', 'Verified'),
+(88, 29.99, 'Bank Transfer', 'Verified'),
+(89, 99.99, 'Google Pay', 'Verified'),
+(90, 39.99, 'Apple Pay', 'Verified'),
+(91, 59.99, 'Credit Card', 'Verified'),
+(92, 69.99, 'Paypal', 'Verified'),
+(93, 44.99, 'Bank Transfer', 'Verified'),
+(94, 34.99, 'Google Pay', 'Verified'),
+(95, 54.99, 'Apple Pay', 'Verified'),
+(96, 79.99, 'Credit Card', 'Verified'),
+(97, 74.99, 'Paypal', 'Verified'),
+(98, 49.99, 'Bank Transfer', 'Verified'),
+(99, 64.99, 'Google Pay', 'Verified'),
+(100, 89.99, 'Apple Pay', 'Verified');
 
-INSERT INTO PaymentsDetails VALUES (1, 'Credit Card', '485012345698794');
-INSERT INTO PaymentsDetails VALUES (2, 'PayPal', '145879645213654');
-INSERT INTO PaymentsDetails VALUES (3, 'Bank Transfer', '1478523690213654');
-INSERT INTO PaymentsDetails VALUES (4, 'Credit Card', '53268478659541245');
-INSERT INTO PaymentsDetails VALUES (5, 'PayPal', '114477885522656');
-INSERT INTO PaymentsDetails VALUES (6, 'PayPal', '5522656');
-INSERT INTO PaymentsDetails VALUES (7, 'Bank Transfer', '363698987474545412');
-INSERT INTO PaymentsDetails VALUES (8, 'Bank Transfer', '363674545412');
-INSERT INTO PaymentsDetails VALUES (9, 'PayPal', '5522656');
-INSERT INTO PaymentsDetails VALUES (10, 'Credit Card', '458745487845645');
-INSERT INTO PaymentsDetails VALUES (11, 'Credit Card', '14587945877445');
-INSERT INTO PaymentsDetails VALUES (12, 'Google Pay', 'Galaxy S25');
-INSERT INTO PaymentsDetails VALUES (13, 'Apple Pay', 'Iphone 15');
-INSERT INTO PaymentsDetails VALUES (14, 'Google Pay', 'Pixel 9 Pro');
-INSERT INTO PaymentsDetails VALUES (15, 'Credit Card', '5522656');
-INSERT INTO PaymentsDetails VALUES (16, 'Google Pay', 'Motorola Moto 6 G');
+GO
+
+/* Stored Procedure */
+
+-- Procedure 1 - Check how many trainers weight above 67
+CREATE PROCEDURE [dbo].[spHowManyTrainersWeightAbove67]
+AS
+BEGIN
+    -- Counting the number of trainers where weight > 67
+    SELECT COUNT(*) AS [Trainers that weights above 67]
+    FROM TrainersDetails
+    WHERE weight > 67;
+END
+GO
+-- הרצת ה-Stored Procedure
+EXEC spHowManyTrainersWeightAbove67
+GO
+-- Procedure 2 - Check how many workout plans each member is registered to
+CREATE PROCEDURE [dbo].[spHowManyWorkoutPlansPerMember]
+AS
+BEGIN
+    -- Counting how many workout plans each member is registered to
+    SELECT memberId, COUNT(*) AS [PlansRegistered]
+    FROM RegistrationToWorkoutPlans
+    GROUP BY memberId
+    ORDER BY memberId;
+END
+GO
+
+-- הרצת ה-Stored Procedure
+EXEC spHowManyWorkoutPlansPerMemeber
+GO
+
+-- Procedure 3 - Check Which member pays the most
+CREATE PROCEDURE [dbo].[spWhichMemberPaysTheMost]
+AS
+BEGIN
+    -- Summing the price of all workout plans a member is registered to
+    SELECT memberId, SUM(WorkoutPlans.price) AS TotalAmountPaid
+    FROM RegistrationToWorkoutPlans
+    JOIN WorkoutPlans ON RegistrationToWorkoutPlans.planId = WorkoutPlans.id
+    GROUP BY memberId
+    ORDER BY TotalAmountPaid DESC;  -- Order by the total amount paid (highest first)
+END
+GO
+
+
+-- הרצת ה-Stored Procedure
+EXEC spWhichMemberPaysTheMost
+GO
+ 
+
+-- Procedure 4 - Check which trainer have start experience from given date
+CREATE PROCEDURE [dbo].[spWhichTrainerHaveExperienceFronGivenDate]
+@StartDate DATE
+AS
+BEGIN
+    -- Summing the price of all workout plans a member is registered to
+    SELECT TrainersDetails.fullName as [Trainer Name], TrainerSpecialization.specialization [Trainer specialization]
+    FROM TrainersDetails
+    JOIN TrainerSpecialization ON TrainersDetails.id = TrainerSpecialization.trainerId
+	where TrainerSpecialization.startExperienceDate >= @StartDate
+	ORDER BY TrainerSpecialization.startExperienceDate;
+END
+GO
+
+
+-- הרצת ה-Stored Procedure
+EXEC spWhichTrainerHaveExperienceFronGivenDate '2016-05-10'
 GO
