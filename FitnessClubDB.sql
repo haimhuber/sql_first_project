@@ -55,7 +55,7 @@ GO
 		fullName varchar(255) NOT NULL,
 		phoneNumber varchar(15) NOT NULL,
 		address VARCHAR(255) NOT NULL,
-		age INT NOT NULL CHECK (age  >= 18),
+		dateOfBirth DATE NOT NULL,
 		height INT NOT NULL,
 		weight INT NOT NULL
 	);
@@ -144,21 +144,39 @@ INSERT INTO Members (fullName, email, phoneNumber, dateOfBirth) VALUES
 GO
 
 /* TrainersDetails */
-INSERT INTO TrainersDetails (fullName, phoneNumber, address, age, height, weight) VALUES
-('John Smith', '555-1111', '123 Oak Street, Springfield', 30, 180, 75),
-('Emily Johnson', '555-1112', '456 Pine Avenue, Springfield', 28, 165, 60),
-('Michael Williams', '555-1113', '789 Maple Drive, Springfield', 35, 178, 85),
-('Sarah Davis', '555-1114', '101 Birch Lane, Springfield', 32, 170, 68),
-('Chris Brown', '555-1115', '202 Cedar Road, Springfield', 29, 176, 72),
-('Jessica Miller', '555-1116', '303 Elm Street, Springfield', 26, 162, 58),
-('David Wilson', '555-1117', '404 Oak Avenue, Springfield', 40, 185, 95),
-('Olivia Moore', '555-1118', '505 Pine Lane, Springfield', 38, 167, 65),
-('Daniel Taylor', '555-1119', '606 Maple Avenue, Springfield', 33, 172, 78),
-('Sophia Anderson', '555-1120', '707 Birch Road, Springfield', 27, 168, 64),
-('James Thomas', '555-1121', '808 Cedar Street, Springfield', 31, 180, 80),
-('Megan Jackson', '555-1122', '909 Elm Avenue, Springfield', 29, 173, 70),
-('Lucas White', '555-1123', '1010 Oak Street, Springfield', 25, 177, 76),
-('Isabella Harris', '555-1124', '1111 Pine Road, Springfield', 34, 165, 63);
+INSERT INTO TrainersDetails (fullName, phoneNumber, address, dateOfBirth, height, weight)
+VALUES
+('John Doe', '555-1234567', '123 Elm St, NY', '1990-05-15', 175, 70),
+('Jane Smith', '555-2345678', '456 Maple Ave, CA', '1985-08-22', 160, 55),
+('Mike Johnson', '555-3456789', '789 Oak St, TX', '1992-11-10', 180, 80),
+('Emily Davis', '555-4567890', '321 Pine St, FL', '1988-04-05', 165, 60),
+('Chris Brown', '555-5678901', '654 Cedar Rd, WA', '1995-07-19', 185, 85),
+('Olivia Wilson', '555-6789012', '987 Birch Ln, IL', '1993-02-25', 170, 65),
+('David Martinez', '555-7890123', '741 Palm Dr, AZ', '1991-09-30', 178, 75),
+('Sophia Anderson', '555-8901234', '852 Spruce Ct, NV', '1987-12-18', 168, 58),
+('James Taylor', '555-9012345', '369 Cherry St, CO', '1994-06-08', 182, 78),
+('Emma Thomas', '555-0123456', '159 Redwood St, OR', '1996-10-21', 163, 57),
+('Daniel White', '555-1122334', '357 Aspen Ave, NJ', '1989-03-12', 176, 72),
+('Isabella Harris', '555-2233445', '468 Magnolia Blvd, GA', '1997-05-27', 167, 59),
+('Ethan Lewis', '555-3344556', '579 Cypress Rd, TN', '1998-08-14', 180, 77),
+('Mia Walker', '555-4455667', '680 Fir St, VA', '1990-12-02', 162, 54),
+('Alexander Hall', '555-5566778', '791 Alder St, MI', '1993-07-15', 185, 83),
+('Charlotte Young', '555-6677889', '892 Beech Ln, OH', '1986-11-09', 169, 61),
+('Benjamin King', '555-7788990', '903 Walnut Rd, SC', '1984-01-28', 177, 74),
+('Amelia Scott', '555-8899001', '204 Hickory St, PA', '1992-06-16', 164, 56),
+('Mason Green', '555-9900112', '315 Poplar Dr, MO', '1995-09-05', 181, 79),
+('Harper Baker', '555-1011122', '426 Sycamore Ln, KY', '1999-02-18', 166, 58),
+('Logan Carter', '555-1112233', '537 Willow St, MN', '1989-05-07', 179, 76),
+('Evelyn Nelson', '555-2223344', '648 Juniper Ave, WI', '1987-10-30', 170, 63),
+('Liam Perez', '555-3334455', '759 Elmwood Dr, IN', '1996-03-23', 183, 81),
+('Avery Roberts', '555-4445566', '860 Pinecone Rd, OK', '1994-08-12', 161, 55),
+('Elijah Adams', '555-5556677', '971 Cedarwood St, LA', '1991-12-29', 174, 71),
+('Scarlett Collins', '555-6667788', '182 Birchwood Ct, MA', '1997-04-09', 165, 60),
+('Noah Stewart', '555-7778899', '293 Maplewood Ave, NC', '1990-09-17', 178, 73),
+('Lily Sanchez', '555-8889900', '404 Oakwood Blvd, UT', '1988-06-20', 169, 62),
+('William Murphy', '555-9990011', '515 Redwood Ct, KS', '1993-11-04', 186, 86),
+('Sofia Rivera', '555-0001122', '626 Cherrywood St, AL', '1995-07-28', 164, 57);
+
 
 GO
 /* --------------------------------------------------------- */
@@ -395,7 +413,7 @@ GO
 /* Stored Procedure */
 
 -- Procedure 1 - Check how many trainers weight above 67
-CREATE PROCEDURE [dbo].[spHowManyTrainersWeightAbove67]
+CREATE OR ALTER PROCEDURE [dbo].[spHowManyTrainersWeightAbove67]
 AS
 BEGIN
     -- Counting the number of trainers where weight > 67
@@ -408,7 +426,7 @@ GO
 EXEC spHowManyTrainersWeightAbove67
 GO
 -- Procedure 2 - Check how many workout plans each member is registered to
-CREATE PROCEDURE [dbo].[spHowManyWorkoutPlansPerMember]
+CREATE OR ALTER PROCEDURE [dbo].[spHowManyWorkoutPlansPerMember]
 AS
 BEGIN
     -- Counting how many workout plans each member is registered to
@@ -424,10 +442,10 @@ EXEC spHowManyWorkoutPlansPerMemeber
 GO
 
 -- Procedure 3 - Check Which member pays the most
-CREATE PROCEDURE [dbo].[spWhichMemberPaysTheMost]
+CREATE OR ALTER PROCEDURE [dbo].[spWhichMemberPaysTheMost]
 AS
 BEGIN
-    -- Summing the price of all workout plans a member is registered to
+
     SELECT memberId, SUM(WorkoutPlans.price) AS TotalAmountPaid
     FROM RegistrationToWorkoutPlans
     JOIN WorkoutPlans ON RegistrationToWorkoutPlans.planId = WorkoutPlans.id
@@ -443,11 +461,11 @@ GO
  
 
 -- Procedure 4 - Check which trainer have start experience from given date
-CREATE PROCEDURE [dbo].[spWhichTrainerHaveExperienceFronGivenDate]
+CREATE OR ALTER PROCEDURE [dbo].[spWhichTrainerHaveExperienceFronGivenDate]
 @StartDate DATE
 AS
 BEGIN
-    -- Summing the price of all workout plans a member is registered to
+   
     SELECT TrainersDetails.fullName as [Trainer Name], TrainerSpecialization.specialization [Trainer specialization]
     FROM TrainersDetails
     JOIN TrainerSpecialization ON TrainersDetails.id = TrainerSpecialization.trainerId
@@ -459,4 +477,49 @@ GO
 
 -- הרצת ה-Stored Procedure
 EXEC spWhichTrainerHaveExperienceFronGivenDate '2016-05-10'
+GO
+
+
+-- Procedure 5 - Check which Trainer is youngest\oldest by LookFor 
+CREATE OR ALTER PROCEDURE [dbo].[spWhichTrainerByLookFor]
+@LookFor VARCHAR(50)
+AS
+BEGIN
+
+    if @LookFor = 'Youngest'
+	begin 
+		SELECT top 1 *
+		from TrainersDetails
+		order by TrainersDetails.dateOfBirth DESC
+	end
+	else if @LookFor = 'Oldest'
+	begin 
+		SELECT top 1 *
+		from TrainersDetails
+		order by TrainersDetails.dateOfBirth ASC
+	end
+END
+GO
+
+ 
+-- הרצת ה-Stored Procedure
+EXEC spWhichTrainerByLookFor 'Youngest'
+GO
+
+
+-- Procedure 6 - Check which How many pays with given method 
+CREATE OR ALTER PROCEDURE [dbo].[spMethodPayByInput]
+@MathodPay VARCHAR(50)
+AS
+BEGIN
+
+    SELECT *
+	FROM Members
+	join RegistrationToWorkoutPlans on Members.id = RegistrationToWorkoutPlans.memberId
+	join PaymentsDetails on RegistrationToWorkoutPlans.id = PaymentsDetails.registrationId
+	where PaymentsDetails.paymentMethods like '%' + @MathodPay + '%';
+END
+GO
+-- הרצת ה-Stored Procedure
+EXEC spMethodPayByInput 'Paypal'
 GO
