@@ -403,10 +403,7 @@ VALUES
 (94, 34.99, 'Google Pay', 'Verified'),
 (95, 54.99, 'Apple Pay', 'Verified'),
 (96, 79.99, 'Credit Card', 'Verified'),
-(97, 74.99, 'Paypal', 'Verified'),
-(98, 49.99, 'Bank Transfer', 'Verified'),
-(99, 64.99, 'Google Pay', 'Verified'),
-(100, 89.99, 'Apple Pay', 'Verified');
+(97, 74.99, 'Paypal', 'Verified');
 
 GO
 
@@ -522,4 +519,66 @@ END
 GO
 -- הרצת ה-Stored Procedure
 EXEC spMethodPayByInput 'Paypal'
+GO
+
+
+
+-- Procedure 7 - Payment Checks 
+CREATE OR ALTER PROCEDURE [dbo].[spPaymentsCheck]
+AS
+BEGIN
+	select Members.fullName as [Member Name], count(RegistrationToWorkoutPlans.planId) as [Registered workout], sum(WorkoutPlans.price) as [Total Plans Price], sum(PaymentsDetails.amount) as [Total Amount Pay], (sum(WorkoutPlans.price) - sum(PaymentsDetails.amount)) as [Not yet paid]
+		from Members
+			join RegistrationToWorkoutPlans on Members.id = RegistrationToWorkoutPlans.memberId
+			join WorkoutPlans on RegistrationToWorkoutPlans.planId = WorkoutPlans.id
+			join PaymentsDetails on RegistrationToWorkoutPlans.id = PaymentsDetails.registrationId
+	group by Members.fullName
+	order by [Not yet paid] DESC
+END
+GO
+-- הרצת ה-Stored Procedure
+EXEC spPaymentsCheck
+GO
+
+
+
+-- Procedure 8 - Return the total profit ot the club
+CREATE OR ALTER PROCEDURE [dbo].[spTotalProfit]
+@totalProfit DECIMAL(10,2) OUTPUT
+AS
+BEGIN
+DECLARE @i int 
+DECLARE @profitSum DECIMAL(10,2)
+
+select @profitSum = sum(PaymentsDetails.amount)
+from PaymentsDetails
+set  @totalProfit = @profitSum
+select @totalProfit as [Total Club Profit]
+END
+GO
+-- הרצת ה-Stored Procedure
+DECLARE @profitSummirng DECIMAL(10,2)
+EXEC spTotalProfit
+@totalProfit = @profitSummirng OUTPUT
+GO
+
+
+
+-- Procedure 9 - Return Who is older than given number
+CREATE OR ALTER PROCEDURE [dbo].[spCheckIfAgeIsInGivenNumber]
+@ageToCheck INT,
+@totalMembers INT OUTPUT
+AS
+BEGIN
+DECLARE @TempTotalMembers INT = 0
+	select @TempTotalMembers = count(*)
+	from Members
+		WHERE DATEDIFF(YEAR, Members.dateOfBirth, GETDATE()) > @ageToCheck	
+	set @totalMembers = @TempTotalMembers
+	select @totalMembers as [Total Member older than 18] 
+END
+GO
+-- הרצת ה-Stored Procedure
+DECLARE @totalMembers INT;
+EXEC spCheckIfAgeIsInGivenNumber 18, @totalMembers OUTPUT;
 GO
